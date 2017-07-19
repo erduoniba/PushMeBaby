@@ -14,6 +14,9 @@
 		A690E0150F8BA56300CEA7C7 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A690E0140F8BA56300CEA7C7 /* ApplicationDelegate.m */; };
 		A690E01D0F8BA57E00CEA7C7 /* ioSock.c in Sources */ = {isa = PBXBuildFile; fileRef = A690E01C0F8BA57E00CEA7C7 /* ioSock.c */; };
 		A690E05D0F8BA8C800CEA7C7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A690E05C0F8BA8C800CEA7C7 /* Security.framework */; };
+		D9247D8B1F1F0C8300BBE608 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9247D8A1F1F0C8300BBE608 /* CoreServices.framework */; };
+		D9247D8D1F1F0DBF00BBE608 /* apns_dev.cer in Resources */ = {isa = PBXBuildFile; fileRef = D9247D8C1F1F0DBF00BBE608 /* apns_dev.cer */; };
+		D94F78DA1F1F2CFE0087685E /* apns_dis.cer in Resources */ = {isa = PBXBuildFile; fileRef = D94F78D91F1F2CFE0087685E /* apns_dis.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		A690E01B0F8BA57E00CEA7C7 /* ioSock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ioSock.h; path = Classes/ioSock.h; sourceTree = "<group>"; };
 		A690E01C0F8BA57E00CEA7C7 /* ioSock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ioSock.c; path = Classes/ioSock.c; sourceTree = "<group>"; };
 		A690E05C0F8BA8C800CEA7C7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
+		D9247D8A1F1F0C8300BBE608 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		D9247D8C1F1F0DBF00BBE608 /* apns_dev.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = apns_dev.cer; sourceTree = "<group>"; };
+		D94F78D91F1F2CFE0087685E /* apns_dis.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = apns_dis.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9247D8B1F1F0C8300BBE608 /* CoreServices.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				A690E05D0F8BA8C800CEA7C7 /* Security.framework in Frameworks */,
 			);
@@ -50,6 +57,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D9247D8C1F1F0DBF00BBE608 /* apns_dev.cer */,
+				D94F78D91F1F2CFE0087685E /* apns_dis.cer */,
 				A690E0130F8BA56300CEA7C7 /* ApplicationDelegate.h */,
 				A690E0140F8BA56300CEA7C7 /* ApplicationDelegate.m */,
 				A690E01B0F8BA57E00CEA7C7 /* ioSock.h */,
@@ -119,6 +128,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9247D8A1F1F0C8300BBE608 /* CoreServices.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -176,6 +186,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				D94F78DA1F1F2CFE0087685E /* apns_dis.cer in Resources */,
+				D9247D8D1F1F0DBF00BBE608 /* apns_dev.cer in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
