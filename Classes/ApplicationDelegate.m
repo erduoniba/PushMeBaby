@@ -10,7 +10,7 @@
 
 @interface ApplicationDelegate ()
 #pragma mark Properties
-@property(nonatomic, retain) NSString *deviceToken, *payload, *certificate;
+@property(nonatomic, retain) NSString *deviceToken, *payload, *certificate, *hostName;
 #pragma mark Private
 - (void)connect;
 - (void)disconnect;
@@ -26,12 +26,14 @@
 		self.deviceToken = @"";
 		self.payload = @"{\"aps\":{\"alert\":\"This is some fancy message.\",\"badge\":1}}";
 
-        BOOL apns_dev = YES;
+        BOOL apns_dev = 0;
         if (apns_dev) {
             self.certificate = [[NSBundle mainBundle] pathForResource:@"apns_dev" ofType:@"cer"];
+            self.hostName = @"gateway.sandbox.push.apple.com";
         }
         else {
             self.certificate = [[NSBundle mainBundle] pathForResource:@"apns_dis" ofType:@"cer"];
+            self.hostName = @"gateway.push.apple.com";
         }
 
 	}
@@ -84,7 +86,7 @@
 	
 	// Establish connection to server.
 	PeerSpec peer;
-	result = MakeServerConnection("gateway.sandbox.push.apple.com", 2195, &socket, &peer);// NSLog(@"MakeServerConnection(): %d", result);
+	result = MakeServerConnection(self.hostName.UTF8String, 2195, &socket, &peer);// NSLog(@"MakeServerConnection(): %d", result);
 	
 	// Create new SSL context.
 	result = SSLNewContext(false, &context);// NSLog(@"SSLNewContext(): %d", result);
@@ -96,7 +98,7 @@
 	result = SSLSetConnection(context, socket);// NSLog(@"SSLSetConnection(): %d", result);
 	
 	// Set server domain name.
-	result = SSLSetPeerDomainName(context, "gateway.sandbox.push.apple.com", 30);// NSLog(@"SSLSetPeerDomainName(): %d", result);
+	result = SSLSetPeerDomainName(context, self.hostName.UTF8String, self.hostName.length);// NSLog(@"SSLSetPeerDomainName(): %d", result);
 	
 	// Open keychain.
 	result = SecKeychainCopyDefault(&keychain);// NSLog(@"SecKeychainOpen(): %d", result);
